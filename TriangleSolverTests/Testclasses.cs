@@ -163,8 +163,104 @@ namespace TriangleSolverTests
             Assert.That(result, Is.EqualTo(expected));
         }
 
-        
-        
+        // Unit tests for zero length sides
+        [Test]
+        public void CheckTriangleType_ZeroSide1()
+        {
+            // Arrange
+            int side1 = 0;
+            int side2 = 5;
+            int side3 = 5;
+            string expected = "Invalid Triangle - a zero has been detected";
+
+            // Act
+            string result = Triangle.AnalyzeTriangle(side1, side2, side3);
+
+            // Assert
+            Assert.That(result, Is.EqualTo(expected));
+        }
+
+        [Test]
+        public void CheckTriangleType_ZeroSide2()
+        {
+            // Arrange
+            int side1 = 5;
+            int side2 = 0;
+            int side3 = 5;
+            string expected = "Invalid Triangle - a zero has been detected";
+
+            // Act
+            string result = Triangle.AnalyzeTriangle(side1, side2, side3);
+
+            // Assert
+            Assert.That(result, Is.EqualTo(expected));
+        }
+
+        [Test]
+        public void CheckTriangleType_ZeroSide3()
+        {
+            // Arrange
+            int side1 = 5;
+            int side2 = 5;
+            int side3 = 0;
+            string expected = "Invalid Triangle - a zero has been detected";
+
+            // Act
+            string result = Triangle.AnalyzeTriangle(side1, side2, side3);
+
+            // Assert
+            Assert.That(result, Is.EqualTo(expected));
+        }
+
+
+        // Unit tests for invalid triangles
+        [Test]
+        public void CheckTriangleType_InvalidSides1()
+        {
+            // Arrange
+            int side1 = 1;
+            int side2 = 2;
+            int side3 = 8;
+            string expected = "INVALID!!";
+
+            // Act
+            string result = Triangle.AnalyzeTriangle(side1, side2, side3);
+
+            // Assert
+            Assert.That(result, Is.EqualTo(expected));
+        }
+
+        [Test]
+        public void CheckTriangleType_InvalidSides2()
+        {
+            // Arrange
+            int side1 = 2;
+            int side2 = 5;
+            int side3 = 8; 
+            string expected = "INVALID!!";
+
+            // Act
+            string result = Triangle.AnalyzeTriangle(side1, side2, side3);
+
+            // Assert
+            Assert.That(result, Is.EqualTo(expected));
+        }
+
+        [Test]
+        public void CheckTriangleType_InvalidSides3()
+        {
+            // Arrange
+            int side1 = 5;
+            int side2 = 1;
+            int side3 = 1; 
+            string expected = "INVALID!!";
+
+            // Act
+            string result = Triangle.AnalyzeTriangle(side1, side2, side3);
+
+            // Assert
+            Assert.That(result, Is.EqualTo(expected));
+        }
     }
  }
 
